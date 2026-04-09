@@ -55,7 +55,7 @@ const socialData = [
   { name: 'github', icon: GothicIcons.book, link: 'https://github.com/justd4v1d-mx' },
   { name: 'discord', icon: GothicIcons.gothicCard, link: '#' },
   { name: 'spotify', icon: GothicIcons.vinyl, link: 'https://open.spotify.com/user/vyv3wbv7f324u9je96nqsx116?si=98a0580e9d3447b6' },
-  { name: 'about me', icon: GothicIcons.voidStar, link: '#' }, 
+  { name: 'about me', icon: GothicIcons.voidStar, link: '/aboutme.pdf' }, 
   { name: 'archives', icon: GothicIcons.archivesStar, link: '#' }, 
 ];
 
