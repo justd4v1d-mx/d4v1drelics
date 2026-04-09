@@ -51,8 +51,11 @@ const AudioPlayer = () => {
       <button onClick={toggle} className="gothic-toggle-btn">
         {isPlaying ? "✕" : "✦"}
       </button>
-      
-      <audio ref={audioRef} src="/ritual.mp3" loop />
+<audio 
+  ref={audioRef} 
+  src={`${import.meta.env.BASE_URL}ritual.mp3`} 
+  loop 
+/>
     </div>
   );
 };
