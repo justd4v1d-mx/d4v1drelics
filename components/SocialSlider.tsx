@@ -56,7 +56,7 @@ const socialData = [
   { name: 'discord', icon: GothicIcons.gothicCard, link: '#' },
   { name: 'spotify', icon: GothicIcons.vinyl, link: 'https://open.spotify.com/user/vyv3wbv7f324u9je96nqsx116?si=98a0580e9d3447b6' },
   { name: 'about me', icon: GothicIcons.voidStar, link: 'aboutme.pdf' }, 
-  { name: 'archives', icon: GothicIcons.archivesStar, link: '#' }, 
+  { name: 'X', icon: GothicIcons.archivesStar, link: 'https://x.com/d4v1d_nh' }, 
 ];
 
 const SocialSlider = () => {
