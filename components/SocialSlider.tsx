@@ -53,7 +53,7 @@ const GothicIcons = {
 const socialData = [
   { name: 'instagram', icon: GothicIcons.gnosticCross, link: 'https://www.instagram.com/d4v1d_nh/' },
   { name: 'github', icon: GothicIcons.book, link: 'https://github.com/justd4v1d-mx' },
-  { name: 'discord', icon: GothicIcons.gothicCard, link: '#' },
+  { name: 'discord', icon: GothicIcons.gothicCard, link: 'https://discord.com/users/584113056015974438' },
   { name: 'spotify', icon: GothicIcons.vinyl, link: 'https://open.spotify.com/user/vyv3wbv7f324u9je96nqsx116?si=98a0580e9d3447b6' },
   { name: 'about me', icon: GothicIcons.voidStar, link: 'aboutme.pdf' }, 
   { name: 'X', icon: GothicIcons.archivesStar, link: 'https://x.com/d4v1d_nh' }, 
