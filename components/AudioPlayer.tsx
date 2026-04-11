@@ -5,26 +5,14 @@ const AudioPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.05);
 
+  // Sync volume state with audio element
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.volume = volume;
-      
-      const attemptPlay = () => {
-        audioRef.current?.play()
-          .then(() => setIsPlaying(true))
-          .catch(() => {
-           
-          });
-      };
-
-      
-      attemptPlay();
-
-      //
-      window.addEventListener('click', attemptPlay, { once: true });
     }
   }, [volume]);
 
+  // Handle manual play/pause
   const toggle = () => {
     if (audioRef.current) {
       if (isPlaying) audioRef.current.pause();
@@ -33,7 +21,7 @@ const AudioPlayer = () => {
     }
   };
 
-  // porcentaje 
+  // UI display value
   const volPercentage = Math.round(volume * 200);
 
   return (
@@ -49,10 +37,16 @@ const AudioPlayer = () => {
       </div>
       
       <button onClick={toggle} className="gothic-toggle-btn">
+        {/* State icons */}
         {isPlaying ? "✕" : "✦"}
       </button>
       
-      <audio ref={audioRef} src="/ritual.mp3" loop />
+      {/* Dynamic path for GitHub Pages */}
+      <audio 
+        ref={audioRef} 
+        src={`${import.meta.env.BASE_URL}ritual.mp3`} 
+        loop 
+      />
     </div>
   );
 };
