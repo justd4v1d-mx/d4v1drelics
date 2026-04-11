@@ -42,10 +42,10 @@ const AudioPlayer = () => {
       </button>
       
       {/* Dynamic path for GitHub Pages */}
-      <audio 
-        ref={audioRef} 
-        src={`${import.meta.env.BASE_URL}ritual.mp3`} 
-        loop 
+     <audio 
+       ref={audioRef} 
+        src={`${(import.meta as any).env.BASE_URL}ritual.mp3`} 
+         loop 
       />
     </div>
   );
