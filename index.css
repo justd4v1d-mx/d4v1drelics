@@ -1,18 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Almendra:wght@400;700&display=swap');
 
-/* 1. Global Reset */
-html, body, #root, .app-container {
-  width: 100vw;
-  height: 100dvh;
+/* 1. Global Reset - Total Lockdown */
+* {
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background: black;
-  font-family: 'Almendra', serif;
-  touch-action: none;
-  position: fixed;
+  box-sizing: border-box;
 }
 
+/* Force both html and body to be a solid block with no gaps */
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  overflow: hidden;
+  display: block; /* Ensure it's not inline-block */
+}
+
+/* This is the div where React lives. It must not have any internal gaps */
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  z-index: 1;
+}
+
+/* Force canvas to ignore everything and stick to the edge */
+canvas {
+  display: block;
+  position: fixed !important; 
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100dvh;
+  position: absolute; /* Changed from relative to absolute */
+  top: 0;
+  left: 0;
+  background: black;
+}
 /* 2. Typography */
 .gothic-text {
   font-family: 'Pirata One', serif;
@@ -32,6 +71,7 @@ html, body, #root, .app-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  pointer-events: none; /* Allows clicks to pass to canvas if not on UI elements */
 }
 
 .main-content {
@@ -41,6 +81,7 @@ html, body, #root, .app-container {
   gap: 20px;
   width: 100%;
   max-width: 1000px;
+  pointer-events: auto; /* Re-enable pointer events for UI interaction */
 }
 
 /* 4. Centered Title & Year */
@@ -64,7 +105,6 @@ html, body, #root, .app-container {
   letter-spacing: 12px;
   opacity: 0.4;
   margin: 5px 0 0 0;
-  /* Offset last char spacing for perfect center */
   margin-right: -12px; 
 }
 
@@ -174,8 +214,6 @@ html, body, #root, .app-container {
 }
 
 .mini-slider {
-  -webkit-appearance: none;
-  /* Standard property for compatibility */
   appearance: none; 
   width: 80px;
   height: 1px;
@@ -184,8 +222,6 @@ html, body, #root, .app-container {
 }
 
 .mini-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  /* Standard property for compatibility */
   appearance: none;
   width: 6px;
   height: 6px;
@@ -224,7 +260,55 @@ html, body, #root, .app-container {
   cursor: default;
 }
 
-/* 9. Responsive */
+/* 9. Loader Overlay */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: #000000;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.loader-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-content {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.loader-num {
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+  opacity: 0.5;
+}
+
+.loader-bar-container {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: #ffffff;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+/* 10. Responsive */
 @media (max-width: 768px) {
   .title-main { font-size: 2.2rem; }
   .title-sub { letter-spacing: 8px; margin-right: -8px; }

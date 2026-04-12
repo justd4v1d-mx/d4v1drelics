@@ -1,11 +1,20 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import { BlackHoleShader, BackgroundSpace, SocialSlider, AudioPlayer } from './components'; 
+/* Import core components */
+import { 
+  BlackHoleShader, 
+  BackgroundSpace, 
+  SocialSlider, 
+  AudioPlayer, 
+  Loader 
+} from './components'; 
 import './index.css';
 
 function App() {
   return (
     <div className="app-container">
+      /* Minimalist loading overlay */
+      <Loader />
       
       {/* UI layer */}
       <div className="ui-screen">
