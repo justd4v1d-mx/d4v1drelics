@@ -486,3 +486,36 @@ canvas {
     font-size: 0.8rem;
   }
 }
+.fragment-meta {
+  display: flex;
+  gap: 20px; /* Space between ID, Date and Category */
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+/* Style for the ID and Date */
+.loader-num {
+  font-family: 'Courier New', Courier, monospace; /* Or your technical font */
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5); /* Dimmed white */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Style for the #Category */
+.category-tag {
+  font-size: 0.7rem;
+  color: #00ff41; /* Neon green to match the button */
+  background: rgba(0, 255, 65, 0.1);
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 255, 65, 0.2);
+}
+
+.fragment-separator {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+  margin-top: 25px;
+  margin-bottom: 40px;
+}
