@@ -8,6 +8,13 @@ export interface FragmentEntry {
 }
 
 export const fragments: FragmentEntry[] = [
+    {
+    id: 4,
+    date: "2026.05.01",
+    title: "Inicio de clases de nuevo",
+    category: "Med",
+    content: "Despues de este breve descanso de la medicina volvemos a la rutina :)"
+    },
   {
     id: 3,
     date: "2026.04.10",
