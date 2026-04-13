@@ -58,7 +58,7 @@ canvas {
   text-transform: lowercase;
   letter-spacing: 4px;
   color: white;
-  /* Offset last char spacing for perfect center */
+
   margin-right: -4px; 
 }
 
@@ -71,7 +71,8 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  pointer-events: none; /* Allows clicks to pass to canvas if not on UI elements */
+  color: white;
+  pointer-events: none;/* Allows clicks to pass to canvas if not on UI elements */
 }
 
 .main-content {
@@ -321,4 +322,167 @@ canvas {
 @media (max-width: 380px) {
   .title-main { font-size: 1.8rem; }
   .slot { height: 240px; }
+}
+.fragments-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.fragments-scroll-area {
+  width: 90%;
+  max-width: 700px;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 100px 20px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.fragments-scroll-area::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.fragment-item {
+  margin-bottom: 60px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.fragment-item:hover { opacity: 1; }
+
+.fragment-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.fragment-body {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #ccc;
+  margin-top: 15px;
+}
+
+.close-btn {
+  position: fixed;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 60;
+  letter-spacing: 2px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.ui-screen.ui-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+/* --- Fragments Blog Layout --- */
+
+.fragments-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.98); /* Deep black */
+  backdrop-filter: blur(15px);
+  z-index: 100;
+  /* Keep the scroll area centered, but the button will bypass this */
+  display: flex; 
+  justify-content: center;
+  overflow: hidden;
+}
+.fragment-item {
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+.fragments-scroll-area {
+  width: 95vw;
+  max-width: 800px;
+  height: 100%;
+  padding: 40px 20px 60px 20px; 
+  
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.fragments-header {
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: left;
+}
+.fragments-header h2 {
+  opacity: 0.9;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Landscape Mode (Horizontal Screens) */
+@media (orientation: landscape) and (min-width: 768px) {
+  .fragments-scroll-area {
+    width: 70vw;
+    max-width: 900px; /* Wider for desktop */
+    padding: 150px 40px;
+  }
+}
+
+.fragments-scroll-area {
+  width: 95vw;
+  max-width: 800px;
+  height: 100%;
+  /* Removed top padding to stick the title to the top */
+  padding: 40px 20px; 
+  overflow-y: auto;
+  scrollbar-width: none;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.fragments-scroll-area::-webkit-scrollbar {
+  display: none; /* Hide scrollbar Chrome/Safari */
+}
+/* --- Neon Return Button --- */
+.close-btn {
+  position: absolute; /* Changed to absolute to pin it to the corner */
+  top: 40px;
+  right: 40px;
+  left: auto; /* Reset any previous centering */
+  transform: none !important;
+  
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff41; /* Matrix Green */
+  cursor: pointer;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  z-index: 130;
+  
+  /* Constant neon glow */
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+.close-btn:hover {
+  /* Increase glow on hover - No movement */
+  text-shadow: 0 0 12px #00ff41, 0 0 25px #00ff41;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .close-btn {
+    top: 20px;
+    right: 20px;
+    font-size: 0.8rem;
+  }
 }

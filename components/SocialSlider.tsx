@@ -1,29 +1,29 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const GothicIcons = {
+// Added a specific type for the component props
+interface SocialSliderProps {
+  onOpenBlog: () => void;
+}
 
+const GothicIcons = {
   gnosticCross: (
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M11 5.5L12 2L13 5.5L12.5 5.5L12.5 18.5L13 18.5L12 22L11 18.5L11.5 18.5L11.5 5.5L11 5.5Z" />
       <path d="M5.5 11L2 12L5.5 13L5.5 12.5L18.5 12.5L18.5 13L22 12L18.5 11L18.5 11.5L5.5 11.5L5.5 11Z" />
     </svg>
   ),
-  
-  
   voidStar: (
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
     </svg>
   ),
-
   archivesStar: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M12 2V22M2 12H22M5.6 5.6L18.4 18.4M5.6 18.4L18.4 5.6" />
       <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" />
     </svg>
   ),
-  
   book: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20M4 19.5V5A2.5 2.5 0 0 1 6.5 2.5H20" />
@@ -31,7 +31,6 @@ const GothicIcons = {
       <text x="6" y="11" fill="currentColor" fontFamily="Pirata One" fontSize="4">D</text>
     </svg>
   ),
-  
   gothicCard: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <rect x="5" y="3" width="14" height="18" rx="1" ry="1" />
@@ -40,26 +39,46 @@ const GothicIcons = {
       <path d="M5 18H19" stroke="currentColor" strokeWidth="0.5" />
     </svg>
   ),
-  
   vinyl: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <circle cx="12" cy="12" r="10" />
       <circle cx="12" cy="12" r="2" fill="currentColor" />
       <circle cx="12" cy="12" r="6" stroke="currentColor" strokeOpacity="0.3" />
     </svg>
+  ),
+  chaliceShard: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      /* Chalice bowl and rim */
+      <path d="M6 9 C6 15 18 15 18 9" />
+      
+      /* Stem and base */
+      <path d="M12 15 V21" />
+      <path d="M9 22 H15" />
+      
+      /* Gothic thorns on stem */
+      <path d="M10 17 L14 19" strokeWidth="1" />
+      <path d="M14 17 L10 19" strokeWidth="1" />
+      
+      /* Floating shards (Fragments) */
+      <path d="M11 3 L13 2 L14 5 Z" />
+      <path d="M7 6 L9 4 L10 7 Z" />
+      <path d="M15 6 L17 4 L16 8 Z" />
+    </svg>
   )
 };
 
 const socialData = [
+  /* Added internal flag for blog access */
   { name: 'instagram', icon: GothicIcons.gnosticCross, link: 'https://www.instagram.com/d4v1d_nh/' },
   { name: 'github', icon: GothicIcons.book, link: 'https://github.com/justd4v1d-mx' },
   { name: 'discord', icon: GothicIcons.gothicCard, link: 'https://discord.com/users/584113056015974438' },
-  { name: 'spotify', icon: GothicIcons.vinyl, link: 'https://open.spotify.com/user/vyv3wbv7f324u9je96nqsx116?si=98a0580e9d3447b6' },
+  { name: 'spotify', icon: GothicIcons.vinyl, link: 'https://spotify.com' },
   { name: 'about me', icon: GothicIcons.voidStar, link: 'aboutme.pdf' }, 
-  { name: 'X', icon: GothicIcons.archivesStar, link: 'https://x.com/d4v1d_nh' }, 
+  { name: 'X', icon: GothicIcons.archivesStar, link: 'https://x.com/d4v1d_nh' },
+   { name: 'fragments', icon: GothicIcons.chaliceShard, link: '#', isInternal: true }, 
 ];
 
-const SocialSlider = () => {
+const SocialSlider: React.FC<SocialSliderProps> = ({ onOpenBlog }) => {
   const [itemsPerView, setItemsPerView] = useState(window.innerWidth < 768 ? 1 : 3);
   const [startIndex, setStartIndex] = useState(0);
   const [direction, setDirection] = useState(1);
@@ -84,22 +103,12 @@ const SocialSlider = () => {
     }
   };
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [startIndex, itemsPerView]);
-
   const currentItems = socialData.slice(startIndex, startIndex + itemsPerView);
   const placeholdersNeeded = itemsPerView - currentItems.length;
   const displayItems = [...currentItems];
 
   for (let i = 0; i < placeholdersNeeded; i++) {
-    
-    displayItems.push({ name: 'empty', icon: GothicIcons.voidStar, link: '#' });
+    displayItems.push({ name: 'empty', icon: GothicIcons.voidStar, link: '#', isInternal: false });
   }
 
   const variants = {
@@ -130,14 +139,23 @@ const SocialSlider = () => {
           >
             {displayItems.map((item, i) => {
               const isEmpty = item.name === 'empty';
+              const isInternal = 'isInternal' in item && item.isInternal;
+
               return (
                 <a 
                   key={isEmpty ? `empty-${i}` : item.name} 
-                  href={isEmpty ? undefined : item.link} 
-                  target="_blank" 
+                  href={isEmpty || isInternal ? undefined : item.link} 
+                  target={isInternal ? undefined : "_blank"} 
                   rel="noreferrer"
                   className={`slot glass-card ${isEmpty ? 'empty-slot' : ''}`}
-                  style={{ pointerEvents: isEmpty ? 'none' : 'auto' }}
+                  style={{ pointerEvents: isEmpty ? 'none' : 'auto', cursor: 'pointer' }}
+                  onClick={(e) => {
+                    /* Intercept click for internal navigation (Blog) */
+                    if (isInternal) {
+                      e.preventDefault();
+                      onOpenBlog();
+                    }
+                  }}
                 >
                   {!isEmpty && <div className="slot-glow"></div>}
                   <span className="slot-icon" style={{ opacity: isEmpty ? 0.05 : 1, color: 'white' }}>{item.icon}</span>
