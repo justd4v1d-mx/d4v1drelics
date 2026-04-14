@@ -3,17 +3,24 @@ export interface FragmentEntry {
   id: number;
   date: string;
   title: string;
-  category: 'Log' | 'Dev' | 'Med' | 'Research';
+  category: 'Log' | 'Dev' | 'Med' | 'Research' | 'Other';
   content: string;
 }
 
 export const fragments: FragmentEntry[] = [
-    {
+  {
+    id: 5,
+    date: "2026.04.13",
+    title: "Adenosin Mono Fosfato (AMP)",
+    category: "Other",
+    content: "Sera que AMP? ya que bby somos soulmates pero no de la cabeza"
+  } , 
+  {
     id: 4,
     date: "2026.04.13",
     title: "Inicio de clases de nuevo",
     category: "Med",
-    content: "Despues de este breve descanso de la medicina volvemos a la rutina :)"
+    content: "Despues de este breve descanso de la medicina volvemos a la rutina"
     },
   {
     id: 3,
@@ -32,7 +39,7 @@ export const fragments: FragmentEntry[] = [
   {
     id: 1,
     date: "2026.02.21",
-    title: "Neuro-Plasticidad",
+    title: "Reajuste de parametros personales",
     category: "Log",
     content: "Redefiniendo el enfoque de mi vida. En lugar de perseguir metas externas, me concentro en moldear mi mente y hábitos. Cada día es una oportunidad para reprogramar mi cerebro, cultivando pensamientos y acciones que reflejen la persona que deseo ser."
   }
