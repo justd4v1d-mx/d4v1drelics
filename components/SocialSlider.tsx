@@ -121,7 +121,7 @@ const SocialSlider: React.FC<SocialSliderProps> = ({ onOpenBlog }) => {
     <div className="slider-wrapper">
       <div className="nav-controls" style={{ marginBottom: '10px' }}>
         <button onClick={prev} className={`gothic-arrow ${startIndex === 0 ? 'disabled' : ''}`}>✙</button>
-        <span className="gothic-text section-label">fragments</span>
+        <span className="gothic-text section-label">Relics</span>
         <button onClick={next} className={`gothic-arrow ${startIndex + itemsPerView >= socialData.length ? 'disabled' : ''}`}>✙</button>
       </div>
 
