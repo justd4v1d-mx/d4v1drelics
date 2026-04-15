@@ -9,6 +9,20 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 7,
+    date: "2026.04.14",
+    title: "Sueños",
+    category: "Other",
+    content: "Es increible como los sueños te pueden llevar a tanto pero son tan debiles y efimeros a la vez, de un momento a otro es como si se acabara el O2 y se fuera todo a la chingada."
+  },
+  {
+    id: 6,
+    date: "2026.04.14",
+    title: "PPP",
+    category: "Other",
+    content: "y si tu me pides la dejo w"
+  },
+  {
     id: 5,
     date: "2026.04.13",
     title: "Adenosin Mono Fosfato (AMP)",
