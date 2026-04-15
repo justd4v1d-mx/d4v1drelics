@@ -13,7 +13,7 @@ export const fragments: FragmentEntry[] = [
     date: "2026.04.14",
     title: "Sueños",
     category: "Other",
-    content: "Es increible como los sueños te pueden llevar a tanto pero son tan debiles y efimeros a la vez, de un momento a otro es como si se acabara el O2 y se fuera todo a la chingada."
+    content: "Es increible como los sueños te pueden llevar a tanto pero son tan debiles y efimeros a la vez, son similares al 'fuego' pero de un momento a otro es como si se acabara el O2 y se fuera todo a la chingada."
   },
   {
     id: 6,
