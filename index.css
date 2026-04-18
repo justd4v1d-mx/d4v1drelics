@@ -362,12 +362,27 @@ canvas {
 }
 
 .fragment-body {
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #ccc;
+  /* Use a monospaced font so every character has the same width */
+  font-family: 'Courier New', Courier, monospace; 
+  font-size: 0.85rem; /* Slightly smaller for technical look */
+  line-height: 1.6;
+  color: rgba(204, 204, 204, 0.8);
   margin-top: 15px;
+  
+  /* Prevents text jumping during decryption */
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0px; 
+  
+  /* Ensures words break properly in small containers */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
+.fragment-item {
+  /* Prevent layout shifts during animation */
+  min-height: 100px; 
+  will-change: opacity;
+}
 .close-btn {
   position: fixed;
   top: 40px;

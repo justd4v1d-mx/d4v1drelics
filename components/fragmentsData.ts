@@ -9,11 +9,18 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 11,
+    date: "2026.04.18",
+    title: "Land stetic changes",
+    category: 'Dev',
+    content:"Se agregaron pequeños 'widgets'  a la pagina, animaciones esteticas en el aspecto de los fragments simulando una desencriptacion, al igual que nuevos logs.",
+  },
+  {
     id: 10,
     date: "2026.04.17",
     title: "Nice try i think",
     category: "Med",
-    content: "Bioqimica me pego una arrastrada hoy ",
+    content: "Bioqimica me pego una arrastrada hoy.",
   },
   {
     id: 9,
