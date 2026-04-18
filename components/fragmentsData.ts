@@ -9,8 +9,15 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
-    id: 9,
+    id: 10,
     date: "2026.04.17",
+    title: "Nice try i think",
+    category: "Med",
+    content: "Bioqimica me pego una arrastrada hoy ",
+  },
+  {
+    id: 9,
+    date: "2026.04.16",
     title: "Amo esos ojos que no me dejan dormir",
     category: "Other",
     content: "Esos ojos que me miran y me hacen sentir vivo, esos ojos que me hipnotizan y me hacen perder la noción del tiempo, esos ojos que me hacen soñar despierto y me llenan de esperanza, esos ojos que me hacen sentir amado y protegido, esos ojos que me hacen sentir completo y feliz."

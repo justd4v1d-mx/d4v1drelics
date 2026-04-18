@@ -7,7 +7,9 @@ import {
   SocialSlider, 
   AudioPlayer, 
   Loader,
-  Fragments // 2. Ensure Fragments is exported from your components index
+  Fragments, // 2. Ensure Fragments is exported from your components index
+  EntropyClock,
+  TerminalFeed
 } from './components'; 
 import './index.css';
 
@@ -18,9 +20,10 @@ function App() {
     <div className="app-container">
       <Loader />
       
-      {/* 1. AudioPlayer stays outside to remain interactive and playing */}
+      {/**/}
       <AudioPlayer />
-
+      <EntropyClock />
+      <TerminalFeed />
       {isBlogOpen && (
         <Fragments onClose={() => setIsBlogOpen(false)} />
       )}

@@ -519,3 +519,104 @@ canvas {
   margin-top: 25px;
   margin-bottom: 40px;
 }
+
+/* --- Entropy Clock Panel --- */
+.entropy-panel {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 150;
+  pointer-events: none;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Espacio mínimo entre líneas */
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  
+  font-size: 0.58rem; /* Fuente más pequeña y técnica */
+  letter-spacing: 0.5px;
+  min-width: 130px; /* Mantiene un ancho controlado */
+}
+
+.entropy-segment {
+  display: flex;
+  justify-content: space-between; /* Alineación horizontal para ahorrar espacio vertical */
+  align-items: center;
+  gap: 15px;
+}
+
+.entropy-label {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.5rem;
+  text-transform: uppercase;
+}
+
+.entropy-value {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Courier New', Courier, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.entropy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 6px;
+  margin-top: 2px;
+}
+
+.neon-text-amber {
+  color: #ffb300;
+  text-shadow: 0 0 5px rgba(255, 179, 0, 0.3);
+  font-weight: bold;
+}
+
+.entropy-footer {
+  font-size: 0.45rem;
+  margin-top: 2px;
+  display: flex;
+  gap: 8px;
+}
+
+.status-blink {
+  color: #00ff41;
+  opacity: 0.8;
+  animation: blink-status 3s infinite;
+}
+
+@keyframes blink-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* --- Terminal Feed: Ambient System Logs --- */
+.terminal-feed {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  pointer-events: none; /* Do not block interaction */
+  
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  
+  font-family: 'Courier New', monospace;
+  font-size: 0.5rem;
+  color: rgba(0, 255, 65, 0.35); /* Dimmed Matrix green */
+  text-transform: uppercase;
+}
+
+/* Fade-in effect for new logs */
+.terminal-feed div {
+  animation: log-fade 0.5s ease-out;
+}
+
+@keyframes log-fade {
+  from { opacity: 0; transform: translateX(-5px); }
+  to { opacity: 1; transform: translateX(0); }
+}
