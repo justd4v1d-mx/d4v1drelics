@@ -440,6 +440,16 @@ canvas {
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
+.fragment-item h3.gothic-text {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Tighten spacing to mask width changes */
+  letter-spacing: 1px; 
+}
+
 /* Landscape Mode (Horizontal Screens) */
 @media (orientation: landscape) and (min-width: 768px) {
   .fragments-scroll-area {
