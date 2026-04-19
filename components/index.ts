@@ -9,3 +9,4 @@ export { default as Loader } from './Loader';
 export { default as Fragments } from './Fragments';
 export {default as EntropyClock } from './EntropyClock';
 export {default as TerminalFeed} from './TerminalFeed'
+export { default as CommandCLI } from './CommandCLI';

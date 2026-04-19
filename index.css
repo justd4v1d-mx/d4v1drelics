@@ -607,15 +607,31 @@ canvas {
   gap: 8px;
 }
 
+/* --- Emergency Status Styles --- */
+
+/* Normal state (Green/Cyan) */
 .status-blink {
   color: #00ff41;
   opacity: 0.8;
-  animation: blink-status 3s infinite;
+  animation: blink-stable 3s infinite;
 }
 
-@keyframes blink-status {
+/* Critical state (Pure Red + Glow) */
+.status-critical-blink {
+  color: #ff0000 !important; /* Force red over parent styles */
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.4);
+  animation: blink-critical 0.5s infinite; /* Much faster blinking */
+}
+
+@keyframes blink-stable {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+
+@keyframes blink-critical {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); } /* Subtle pulse effect */
 }
 
 /* --- Terminal Feed: Ambient System Logs --- */
@@ -644,4 +660,93 @@ canvas {
 @keyframes log-fade {
   from { opacity: 0; transform: translateX(-5px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+/* --- Social Relay Module --- */
+.relay-link {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.relay-link:hover {
+  background: rgba(0, 255, 65, 0.05);
+  border-left: 2px solid #00ff41;
+}
+
+.freq-label {
+  font-family: monospace;
+  font-size: 0.5rem;
+  color: #00ff41; /* Signal green */
+  opacity: 0.5;
+}
+
+.relay-link .gothic-text {
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.cli-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid #00ff41;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.cli-prompt {
+  color: #00ff41;
+  font-family: monospace;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.cli-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 500px;
+  font-size: 0.8rem;
+}
+
+/* --- Gravity Pulse Effect --- */
+.grav-pulse-active {
+  animation: grav-warp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* --- index.css --- */
+@keyframes grav-warp {
+  0% { filter: blur(0) contrast(1); transform: scale(1); }
+  15% { 
+    filter: blur(2px) contrast(1.5) hue-rotate(10deg); 
+    transform: scale(1.02) skewY(1deg); 
+  }
+  30% { 
+    /* Eliminamos el Math.pow que causaba el error */
+    filter: blur(8px) contrast(2) saturate(0); 
+    transform: scale(0.98) skewX(2deg); 
+  }
+  100% { filter: blur(0) contrast(1); transform: scale(1); }
+}
+
+/* Updated Warning Banner */
+.grav-warning {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffb300; /* Amber for gravity warnings */
+  text-shadow: 0 0 15px rgba(255, 179, 0, 0.6);
+  z-index: 1000;
+  letter-spacing: 4px;
+  font-weight: bold;
 }

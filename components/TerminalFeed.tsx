@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const TerminalFeed: React.FC = () => {
-  const [logs, setLogs] = useState<string[]>(['[SYSTEM] LINK_ESTABLISHED']);
+interface TerminalFeedProps {
+  customLogs?: string[];
+}
+
+const TerminalFeed: React.FC<TerminalFeedProps> = ({ customLogs = [] }) => {
+  const [internalLogs, setInternalLogs] = useState<string[]>(['[SYSTEM] LINK_ESTABLISHED']);
 
   // Helpers for random data generation
   const getHex = () => Math.floor(Math.random() * 4096).toString(16).toUpperCase().padStart(3, '0');
@@ -22,25 +26,27 @@ const TerminalFeed: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Pick a random template and execute it
       const generator = templates[Math.floor(Math.random() * templates.length)];
       const newLog = `> ${generator()}`;
       
-      // Keep only the last 5 logs for UI cleanliness
-      setLogs(prev => [...prev.slice(-4), newLog]);
+      setInternalLogs(prev => [...prev.slice(-4), newLog]);
     }, 3500);
 
     return () => clearInterval(interval);
   }, []);
 
+ 
+  const logsToDisplay = customLogs.length > 0 ? customLogs : internalLogs;
+
   return (
     <div className="terminal-feed loader-num">
-      {logs.map((log, i) => (
+      {logsToDisplay.map((log, i) => (
         <div 
           key={i} 
           style={{ 
-            opacity: (i + 1) / logs.length,
-            transform: `translateX(${i * 2}px)` // Subtle indent for depth
+            opacity: (i + 1) / logsToDisplay.length,
+            transform: `translateX(${i * 2}px)`,
+            color: log.includes('CRITICAL') || log.includes('WARNING') ? '#ff0000' : 'inherit'
           }}
         >
           {log}
