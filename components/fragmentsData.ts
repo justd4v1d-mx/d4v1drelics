@@ -9,6 +9,13 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 12,
+    date: "2026.04.27",
+    title: "Weird",
+    category: 'Other',
+    content: "Si se supone que me repudias y no quieres saber nada de mi, porque me buscas todavia?, porque me desbloqueas???, porque estas atenta de mis movimientos?????, PORQUE NO ESCRIBES????, PORQUE ???? SOLO DIME POR QUE LO HACES SI NO QUIERES SABER NADA DE MI, PORQUE ME HACES ESTO SI ME REPUDIAS????? PORQUE ME HACES ESTO SI NO QUIERES SABER NADA DE MI??????, simpleente destrozas la inestable realidad en la cual estoy sostenido, algo mas inestable que este horizonte de gravitatorio, si se supone que tu vida es perfecta despues de dejarme atras, por que no me dejas ser yo y volver a construir lo que era sin saber nada de ti??????????????????????? NO ENTIENDO NADA NADA"
+  },
+  {
     id: 11,
     date: "2026.04.18",
     title: "Land stetic changes",
