@@ -9,6 +9,13 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 13,
+    date: "2026.5.04",
+    title: "La neta ni yo ya se que pedo",
+    category: 'Other',
+    content: "Sinceramente yo ya no se ni que pedo con mi vida, en este ultimo mes me fue bien en la uni pero no mames en lo personal pienso en ella y me quedo como 'tonto' o lelo y el dilema es que todo eso es diario y no deja de suceder desde hace ya varios meses, llega a ser cansado y me agota demasiado como persona al punto de no saber siquiera si me podre levantar al dia siguiente, todo esto es un golpe fuerte a mi mentalidad, me quiero ver como el 'vale verga' pero claro que todavia me importas y claro que te quiero de nuevo en mi vida sin importar el que o si tengo que sacrificarme a mi mismo, yo se que valdra la pena ya que verdaderamente te amo y no encuentro a alguien mejor o siquiera similar a ti... pero es que se que no podra ser como quiero"
+  },
+  {
     id: 12,
     date: "2026.04.27",
     title: "Weird",
