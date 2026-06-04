@@ -9,15 +9,22 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 15,
+    date: "2026.06.3",
+    title: "No puedo.",
+    category: 'Other',
+    content: "Verdaderamente no puedo creer que despues de 4 meses no te deje de pensar dia tras dia hasta el punto de dejarme incapacitado, no puedo creer que despues de todo lo que pasamos y vivimos juntos tu no me hayas llegado a extrañar ni un momento cuando yo sigo muriendo por un poco mas de tu amor, claramente te extraño mi niña de ojos hermosos esos ojos café caramelo que provocaban que me perdiera durante horas, extraño esos momentos que llegamos a compartir, te extraño a ti (E)"
+  },
+  {
     id: 14,
-    date: "2026.5.29",
+    date: "2026.05.29",
     title: "Fin del semestre",
     category: 'Med',
     content: "Acabo de terminar este semestre y aun te sigo pensando y amando, espero que estes bien mi niña(E)"
   },
   {
     id: 13,
-    date: "2026.5.04",
+    date: "2026.05.04",
     title: "La neta ni yo ya se que pedo",
     category: 'Other',
     content: "Sinceramente yo ya no se ni que pedo con mi vida, en este ultimo mes me fue bien en la uni pero no mames en lo personal pienso en ella y me quedo como 'tonto' o lelo y el dilema es que todo eso es diario y no deja de suceder desde hace ya varios meses, llega a ser cansado y me agota demasiado como persona al punto de no saber siquiera si me podre levantar al dia siguiente, todo esto es un golpe fuerte a mi mentalidad, me quiero ver como el 'vale verga' pero claro que todavia me importas y claro que te quiero de nuevo en mi vida sin importar el que o si tengo que sacrificarme a mi mismo, yo se que valdra la pena ya que verdaderamente te amo y no encuentro a alguien mejor o siquiera similar a ti... pero es que se que no podra ser como quiero"
