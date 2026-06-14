@@ -9,8 +9,15 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 16,
+    date: "2026.06.04",
+    title: "PURA LETRA MUDA",
+    category: 'Other',
+    content: "se que la distancia no ayuda, en el dolor que siento al dia, que dificil es controlar este dolor por que dios me pregunto?, cuando te veo, cuando yo estoy mal tu ya no estas... sabes lo que siento sin mirar, se que tu sabes cuando no estoy bien o cuando estoy mejor que bien, cuando estoy al 100. No se como el tiempo nos comio, no estuve contigo lo que debio. QUIERO QUEDARME CONTIGO DE AQUI HASTA EL FIN Y JAMAS SOLTARME DE TI Y VIVIR FELIZ."
+  },
+  {
     id: 15,
-    date: "2026.06.3",
+    date: "2026.06.03",
     title: "No puedo.",
     category: 'Other',
     content: "Verdaderamente no puedo creer que despues de 4 meses no te deje de pensar dia tras dia hasta el punto de dejarme incapacitado, no puedo creer que despues de todo lo que pasamos y vivimos juntos tu no me hayas llegado a extrañar ni un momento cuando yo sigo muriendo por un poco mas de tu amor, claramente te extraño mi niña de ojos hermosos esos ojos café caramelo que provocaban que me perdiera durante horas, extraño esos momentos que llegamos a compartir, te extraño a ti (E)"
