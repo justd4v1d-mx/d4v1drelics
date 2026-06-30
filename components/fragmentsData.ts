@@ -9,6 +9,13 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 17,
+    date: "2026.06.30",
+    title: "OMAKASE >|<",
+    category: 'Other',
+    content: "Quiero que me diga que me extraña, y que apesar de to' y apesar de to' todavia piensas en nosotros dos, que eso de decir 'adios' siempre fue un error. No sabes cuantas noches miro el phone imaginando que eres tu la que me esta llamando pa' volver, que te arrepientes de alejarte y aun que sabes que es tarde me preguntes si 'te quiero ver' c: ///pd: me muero en vida sin ti linda."
+  },
+  {
     id: 16,
     date: "2026.06.04",
     title: "PURA LETRA MUDA",
