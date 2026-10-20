@@ -9,6 +9,13 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+     id: 18,
+    date: "2026.10.19",
+    title: "Sigo vivo",
+    category: 'Other',
+    content: "Basicamente me he enfocado en mejorar en mi mismo, ya no sigo obsesionado por esa persona, simplemente solo me la vivo en U->GYM->Hospital en bucle, agradezco lo que tengo y quien esta en mi vida actualmente, no podria desear un mejor estado en el cual estar, ahora mismo solo queda seguir adelante y seguir mejorando para ser una mejor persona, si estas leyendo esto personita TQM y gracias espero volver a dar señas por aqui pronto C:"
+  },
+  {
     id: 17,
     date: "2026.06.30",
     title: "OMAKASE >|<",
