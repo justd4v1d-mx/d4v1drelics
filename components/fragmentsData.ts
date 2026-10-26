@@ -9,6 +9,13 @@ export interface FragmentEntry {
 
 export const fragments: FragmentEntry[] = [
   {
+    id: 19,
+    date: "2026.10.20",
+    title: "SOS",
+    category: 'Other',
+    content: "AYUDA ME ESCLAVIZAN EN URG"
+  },
+  {
      id: 18,
     date: "2026.10.19",
     title: "Sigo vivo",
